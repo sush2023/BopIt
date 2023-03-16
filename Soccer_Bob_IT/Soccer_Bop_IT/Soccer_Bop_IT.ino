@@ -34,7 +34,7 @@ void collectInputs(){
   }
 
   //DISPLAY IF POWER SHOULD BE HIGH OR LOW
-  if(randomPower = 1){
+  if(randomPower = 0){
     //Display Power High on Screen or Sound
   }
 
@@ -50,7 +50,7 @@ void collectInputs(){
 
   //Checking to see if the power is right
   //Dont know sensor threshhold values yet so lets just say 50 for now
-  if((randomPower = 1 && sensorValue >= 50) || (randomPower = 2 && sensorValue <50)){
+  if((randomPower = 0 && sensorValue >= 50) || (randomPower = 1 && sensorValue <50)){
     powerRight = true;
     }
 
@@ -99,7 +99,7 @@ void loop() {
     randomPower = random(2);
 
     //Stage 1 Right
-    if(randomStage == 1){
+    if(randomStage == 0){
       //Display Pic Right
       
       //Collect Inputs
@@ -120,7 +120,7 @@ void loop() {
     
     
     //Stage 2 Left
-    if(randomStage == 2){
+    if(randomStage == 1){
       //Display Pic Left
 
       //Collect Inputs
