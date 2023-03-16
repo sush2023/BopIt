@@ -24,6 +24,7 @@ int  totalPoints = 0;
 unsigned long totalTime; //Total time program has been running in miliseconds
 unsigned long timeLimit = 5000; //Time Limit for each command
 
+
 void collectInputs(){
 
   //Aim it
@@ -34,11 +35,11 @@ void collectInputs(){
 
   //DISPLAY IF POWER SHOULD BE HIGH OR LOW
   if(randomPower = 1){
-    //Display Power High on Screen
+    //Display Power High on Screen or Sound
   }
 
   else{
-    //Display Power Low on Screen
+    //Display Power Low on Screen or Sound
   }
 
   //Power It
@@ -73,7 +74,7 @@ void collectInputs(){
 void setup() {
   // put your setup code here, to run once:
   pinMode(8, OUTPUT);    //Buzzer
-  pinModer(7, INPUT); //Button
+  pinMode(7, INPUT); //Button
   //int sensorValue = analogRead(A1) - POTENTIOMETER
   Serial.begin(9600);
 }
@@ -94,8 +95,8 @@ void loop() {
 
   while(true){
     //Pick a random number between 1 and 2 to pick the stage
-    int randomStage = random(2);
-    int randomPower = random(2);
+    randomStage = random(2);
+    randomPower = random(2);
 
     //Stage 1 Right
     if(randomStage == 1){
@@ -142,9 +143,27 @@ void loop() {
       //Display Miss Screen and Total Points for 10 Seconds
       delay(10000); //10 Seconds
 
-      //Reset total points
-      totalPoints = 0;
+      //Reset Visits
+      totalPoints = 0; //Reset total points
+      timeLimit = 5000; // Reset Time limit
       break;
+    }
+
+    //Checks to see if game won
+    if(totalPoints = 50){
+      //Display Winning Screen for 10 seconds
+      delay(10000); //10 Seconds
+
+      //Reset Visits
+      totalPoints = 0; //Reset total points
+      timeLimit = 5000; // Reset Time limit
+      break;
+    }
+
+    //Decreases by 0.25 seconds every 5 points. Decreases to 2.5 Seconds by end of game
+    if(totalPoints%5 == 0){
+      timeLimit -= 250;
+
     }
   }
   
