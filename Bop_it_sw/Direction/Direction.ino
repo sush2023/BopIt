@@ -7,8 +7,8 @@
  */
 #include <math.h>
 
-#define VRX_PIN  A0 // Arduino pin connected to VRX pin
-#define VRY_PIN  A1 // Arduino pin connected to VRY pin
+#define VRX_PIN  A2 // Arduino pin connected to VRX pin
+#define VRY_PIN  A3 // Arduino pin connected to VRY pin
 
 int xValue = 0 ; // To store value of the X axis
 int yValue = 0 ; // To store value of the Y axis
